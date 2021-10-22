@@ -1,0 +1,117 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow: hidden;
+    font-family: "Montserrat";
+    font-size: 20px;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+}
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #1b1b1b;
+    /* background-color: rgb(37, 37, 37); */
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+section .btn {
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+.container {
+    overflow-y: scroll;
+    height: 70vh;
+    width: 60vw;
+    background-color: #1b1b1b;
+    margin: 0 0 10px 0;
+}
+
+.container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px #fff;
+}
+
+section h1 {
+    color: rgba(255, 255, 255, 0.322);
+    text-align: center;
+    width: 100%;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+h1 .bot {
+    color: #fff;
+}
+
+section p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.322);
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+/* .container {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: center;
+} */
+
+.texts p {
+    color: black;
+    text-align: left;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.texts p.replay {
+    text-align: right;
+    background-color: green;
+}
+
+@media only screen and (max-width: 320px) {
+    .container .btn {
+        margin-left: 100px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .container .btn {
+        margin-left: 80px;
+    }
+}
+
+section #container {
+    position: fixed;
+    display: block;
+    margin-top: 70vh;
+    height: 100px;
+    width: 100%;
+    background-image: url(8669-siri-like-waveform.gif);
+    background-size: 100% 100%;
+}
