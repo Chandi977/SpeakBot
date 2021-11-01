@@ -8,12 +8,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 let p = document.createElement("p");
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> f6b17e8616613e39ad308028e00037df91398bba
 recognition.addEventListener("result", (e) => {
     texts.appendChild(p);
     const text = Array.from(e.results).map((result) => result[0]).map((result) => result.transcript).join("");
@@ -58,7 +53,6 @@ recognition.addEventListener("result", (e) => {
                 console.log(err);
             });
         }
-<<<<<<< HEAD
         if (finalText.includes("WHAT IS")) {
             let temp = finalText.search("WHAT IS");
             let query = finalText.substr(temp + 7, finalText.length);
@@ -105,8 +99,6 @@ recognition.addEventListener("result", (e) => {
             }
             getResults(query);
         }
-=======
->>>>>>> f6b17e8616613e39ad308028e00037df91398bba
         if (finalText.includes("WHAT IS YOUR NAME")) {
             p = document.createElement("p");
             p.classList.add("replay");
@@ -164,8 +156,4 @@ recognition.addEventListener("result", (e) => {
 
 // recognition.addEventListener("end", () => {
 //     recognition.start();
-<<<<<<< HEAD
 // });
-=======
-// });
->>>>>>> f6b17e8616613e39ad308028e00037df91398bba
