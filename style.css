@@ -224,7 +224,7 @@ input::placeholder {
 .sendbox button {
     position: absolute;
     top: 0.2rem;
-    right: 0.7rem;
+    left: 7rem;
     width: 2rem;
     height: 2rem;
     border: none;
