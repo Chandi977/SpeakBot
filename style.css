@@ -24,7 +24,7 @@ body {
 body::before,
 body::after {
     content: "";
-    height: 90vh;
+    height: 100vh;
     width: 33%;
     position: absolute;
     z-index: -10;
@@ -286,15 +286,25 @@ input::placeholder {
         flex-direction: column;
         padding: 5rem 0 7rem;
     }
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
     body::before {
-        width: 16rem;
-        height: 30rem;
+        width: 20rem;
+        height: 50rem;
     }
     body::after {
         display: none;
     }
+    .sendbox {
+        margin-top: 25%;
+    }
     .mobile {
-        margin-bottom: 3rem;
+        margin-top: 10%;
+        width: 50vw;
+        height: 90vh;
     }
     .text {
         margin: 0 2rem;
