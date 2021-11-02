@@ -1,117 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
 }
 
-html,
+a {
+    text-decoration: none;
+}
+
 body {
-    overflow: hidden;
-    font-family: "Montserrat";
-    font-size: 20px;
-    height: 100vh;
     width: 100%;
+    min-height: 100vh;
+    background: #412D53;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
 }
 
-section {
-    min-height: 100vh;
-    width: 100%;
+body::before,
+body::after {
+    content: "";
+    height: 90vh;
+    width: 33%;
+    position: absolute;
+    z-index: -10;
+}
+
+.maindiv {
     display: flex;
     align-items: center;
-    background-color: #1b1b1b;
-    /* background-color: rgb(37, 37, 37); */
+}
+
+.mobile {
+    width: 17rem;
+    min-width: 17rem;
+    overflow: hidden;
+    padding: 0.6rem;
+    border-radius: 2rem;
+    box-shadow: 10px 15px 40px #00000030;
+    background: white;
+}
+
+.head {
+    background: linear-gradient(270deg, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+    border-radius: 1.5rem 1.5rem 0.4rem 0.4rem;
+    color: white;
+}
+
+.head .notch {
+    height: 1rem;
+    width: 47%;
+    background: white;
+    margin: 0 auto 0.5rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.profilebox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.profilebox .left {
+    display: flex;
+    align-items: center;
+}
+
+.profilebox .left i {
+    margin-right: 0.5rem;
+}
+
+.left .profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    width: 1.7rem;
+    height: 1.7rem;
+    margin-right: 0.5rem;
+    border: 2px solid #e8e8e8;
+    border-radius: 100%;
+}
+
+.profile .pdetail h3 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #e8e8e8;
+}
+
+.profile .pdetail p {
+    margin-top: -10px;
+    font-size: 0.6rem;
+    color: #cacacac4;
+    font-weight: 400;
+}
+
+.eachmessage {
+    font-size: 0.6rem;
+    width: 10rem;
+    padding: 0.5rem;
+    margin: 0.2rem 0;
+}
+
+.received {
+    background: #e9d8f7;
+    color: #1b1b1b;
+    border-radius: 0.7rem 0.7rem 0.7rem 0.2rem;
+    box-shadow: -1px 2px 2px #00000026;
+    transform: translateX(-100px) scale(0.5);
+    opacity: 0;
+}
+
+.sent {
+    background: #FFFEFF;
+    align-self: flex-end;
+    color: #ACA9B1;
+    border-radius: 0.7rem 0.7rem 0.3rem 0.7rem;
+    box-shadow: 1px 2px 2px #0000000f;
+    transform: translateX(100px) scale(0.5);
+    opacity: 0;
+}
+
+.eachmessage.imgbox {
+    align-self: flex-end;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.3rem;
+}
+
+.eachmessage img {
+    width: 2.5rem;
+    border-radius: 0.5rem;
+    margin: 0.1rem;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.animated {
+    transition: 0.3s ease-in-out!important;
+    transform: translateX(0px) scale(1)!important;
+    opacity: 1!important;
+}
+
+.chatbox {
+    background: #F5F3F8;
+    padding: 0.5rem;
+    display: flex;
     flex-direction: column;
-    padding: 20px 0;
-}
-
-section .btn {
-    margin-top: -30px;
-    margin-bottom: 20px;
-}
-
-.container {
+    height: 24rem;
     overflow-y: scroll;
-    height: 70vh;
-    width: 60vw;
-    background-color: #1b1b1b;
-    margin: 0 0 10px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
-.container::-webkit-scrollbar {
-    width: 5px;
+.deal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient( 90deg, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+    border-radius: 0.7rem 0.7rem 0.7rem 0.2rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    color: white;
+    width: 11rem;
+    box-shadow: -1px 2px 2px #00000026;
+    transform: translateX(-100px) scale(0.5);
+    opacity: 0;
 }
 
-.container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+.deal .det {
+    display: flex;
+    align-items: center;
 }
 
-.container::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    box-shadow: inset 0 0 6px #fff;
+.det input {
+    border: 0;
+    margin-right: 0.3rem;
 }
 
-section h1 {
-    color: rgba(255, 255, 255, 0.322);
-    text-align: center;
+.det p {
+    font-size: 0.7rem;
+    color: #f5f5f5c9;
+}
+
+.deal .price {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.sendbox {
+    position: relative;
+    background: #F5F3F8;
+    border-radius: 0 0 1.5rem 1.5rem;
+    padding: 0 0.5rem 0.5rem;
+}
+
+.sendbox input {
+    border: 0;
+    outline: 0;
+    background: white;
     width: 100%;
-    font-size: 50px;
-    margin-bottom: 10px;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    color: rgb(173, 173, 173);
+    height: 2.3rem;
 }
 
-h1 .bot {
-    color: #fff;
+input::placeholder {
+    font-size: 0.7rem;
+    color: rgb(173, 173, 173);
 }
 
-section p {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.322);
-    width: 100%;
-    margin-bottom: 40px;
+.sendbox button {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.7rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    outline: none;
+    background: #382153;
+    color: white;
+    border-radius: 100%;
+    cursor: pointer;
 }
 
-
-/* .container {
-    width: 90%;
-    max-width: 500px;
-    margin: 0 auto;
-    justify-content: center;
-} */
-
-.texts p {
-    color: black;
-    text-align: left;
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+.text {
+    width: 27rem;
+    margin-left: 8rem;
 }
 
-.texts p.replay {
-    text-align: right;
-    background-color: green;
+.text h1 {
+    color: #412D53;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-@media only screen and (max-width: 320px) {
-    .container .btn {
-        margin-left: 100px;
-    }
+.text p {
+    color: darkgrey;
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
-@media only screen and (max-width: 425px) {
-    .container .btn {
-        margin-left: 80px;
-    }
-}
-
-section #container {
+.attribution {
     position: fixed;
-    display: block;
-    margin-top: 70vh;
-    height: 100px;
-    width: 100%;
-    background-image: url(8669-siri-like-waveform.gif);
-    background-size: 100% 100%;
+    bottom: 1rem;
+    right: 1rem;
+    background: #000000d6;
+    color: white;
+    padding: 0.8rem;
+    font-weight: 300;
+    border-radius: 0.4rem;
+    line-height: 1.5;
+}
+
+.attribution a {
+    color: whitesmoke;
+    font-weight: 400;
+}
+
+.chatbox::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen and (max-width: 850px) {
+    .text {
+        width: auto;
+        margin: 0 1rem 0 3rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .maindiv {
+        flex-direction: column;
+        padding: 5rem 0 7rem;
+    }
+    body::before {
+        width: 16rem;
+        height: 30rem;
+    }
+    body::after {
+        display: none;
+    }
+    .mobile {
+        margin-bottom: 3rem;
+    }
+    .text {
+        margin: 0 2rem;
+        text-align: center;
+    }
 }

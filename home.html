@@ -7,23 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 
 <body>
-    <section>
-        <h1>Speak<span class="bot">Bot</span></h1>
-        <p>Yeh bolta v hai.....</p>
-        <button onclick="recognition.start();" class="btn btn-success">Speak</button>
-        <div class="container ">
-            <div class="texts">
-                <p>Say Hello SpeakBot</p>
+
+    <div class="maindiv">
+        <div class="mobile">
+            <div class="head">
+                <div class="notch"></div>
+                <div class="profilebox">
+                    <div class="left">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <div class="profile">
+                            <div class="pdetail">
+                                <h3>SpeakBot</h3>
+                                <p>Available to talk</p>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="chatbox">
+
+
+
+            </div>
+            <div class="sendbox">
+                <input type="text" placeholder="Say Something">
+                <button class="submit" onclick="recognition.start();"><i class="fa fa-microphone" aria-hidden="true"></i></button>
             </div>
         </div>
-        <!-- <div id="container">
-        </div> -->
-    </section>
-    <!-- <script src="check.js"></script> -->
+    </div>
     <script src="script.js"></script>
 </body>
 

@@ -1,7 +1,12 @@
 const texts = document.querySelector(".texts");
-const btn = document.querySelector(".btn");
-var synth = window.speechSynthesis;
-var amISpeaking = synth.speaking;
+// const btn = document.querySelector(".btn");
+const animate = document.querySelectorAll(".animate");
+const submit = document.querySelector(".submit");
+const text = document.querySelector(".sendbox input");
+const chatbox = document.querySelector(".chatbox");
+
+const synth = window.speechSynthesis;
+const amISpeaking = synth.speaking;
 synth.voice = "hi-IN";
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -10,9 +15,10 @@ recognition.interimResults = true;
 let p = document.createElement("p");
 
 recognition.addEventListener("result", (e) => {
-    texts.appendChild(p);
+    // texts.appendChild(p);
     const text = Array.from(e.results).map((result) => result[0]).map((result) => result.transcript).join("");
     p.innerText = text;
+
     const replay = "";
 
     function speak(replay) {
@@ -21,21 +27,25 @@ recognition.addEventListener("result", (e) => {
     }
     const finalText = text.toUpperCase();
     if (e.results[0].isFinal) {
-
+        chatbox.innerHTML += '<div class="eachmessage sent animated"><p>' + p.innerHTML + '</p></div>';
         // the recognition AI......
         if (finalText.includes("HELLO" || "HI" || "HEY" || "HEY SPEAKBOT")) {
             p = document.createElement("p");
             p.classList.add("replay");
             p.innerText = "Hi, I am a SpeakBot. How can i help you";
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
             speak(p.innerHTML);
-            texts.appendChild(p);
+            // texts.appendChild(p);
         }
         if (finalText.includes("HOW ARE YOU")) {
             p = document.createElement("p");
             p.classList.add("replay");
             p.innerText = "I am fine, Thankyou.";
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
             speak(p.innerHTML);
-            texts.appendChild(p);
+            // texts.appendChild(p);
         }
         if (finalText.includes("WHAT'S THE WEATHER" || "WHAT'S THE WEATHER IN JAMSHEDPUR")) {
             const url = "https://api.openweathermap.org/data/2.5/weather?q=Jamshedpur&appid=5878944582ef8963d92960f95ef05d29";
@@ -47,8 +57,10 @@ recognition.addEventListener("result", (e) => {
                 p = document.createElement("p");
                 p.classList.add("replay");
                 p.innerText = text + ' ' + Math.trunc(temp) + '° celcius.';
+                chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p> </div>';
+                chatbox.scrollTop = chatbox.scrollHeight;
                 speak(p.innerHTML);
-                texts.appendChild(p);
+                // texts.appendChild(p);
             }).catch(function(err) {
                 console.log(err);
             });
@@ -57,8 +69,6 @@ recognition.addEventListener("result", (e) => {
             let temp = finalText.search("WHAT IS");
             let query = finalText.substr(temp + 7, finalText.length);
             query = query.trim();
-
-            // console.log();
 
             function getResults(query) {
                 const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&origin=*&srlimit=25&utf8=&format=json&srsearch=${query}`;
@@ -87,8 +97,10 @@ recognition.addEventListener("result", (e) => {
                                 p = document.createElement("p");
                                 p.classList.add("replay");
                                 p.innerText = str.replace(/(<([^>]+)>)/ig, '');
+                                chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+                                chatbox.scrollTop = chatbox.scrollHeight
                                 speak(p.innerHTML);
-                                texts.appendChild(p);
+                                // texts.appendChild(p);
                             }
                             return str.replace(/(<([^>]+)>)/ig, '');
                         }
@@ -103,8 +115,10 @@ recognition.addEventListener("result", (e) => {
             p = document.createElement("p");
             p.classList.add("replay");
             p.innerText = "My Name is SpeakBot";
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
             speak(p.innerHTML);
-            texts.appendChild(p);
+            // texts.appendChild(p);
         }
         if (finalText.includes("WHAT'S THE DATE")) {
             p = document.createElement("p");
@@ -115,22 +129,28 @@ recognition.addEventListener("result", (e) => {
             var yyyy = today.getFullYear();
             today = mm + '/' + dd + '/' + yyyy;
             p.innerText = today;
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
             speak(p.innerHTML);
-            texts.appendChild(p);
+            // texts.appendChild(p);
         }
         if (finalText.includes("WHO CREATED YOU")) {
             p = document.createElement("p");
             p.classList.add("replay");
             p.innerText = "Chandi Charan Mahato";
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
             speak(p.innerHTML);
-            texts.appendChild(p);
+            // texts.appendChild(p);
         }
 
         if (finalText.includes("OPEN YOUTUBE")) {
             p = document.createElement("p");
             p.classList.add("replay");
             p.innerText = "Opening Youtube..";
-            texts.appendChild(p);
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
+            // texts.appendChild(p);
             speak(p.innerHTML);
             window.open("https://www.youtube.com/");
         }
@@ -138,7 +158,9 @@ recognition.addEventListener("result", (e) => {
             p = document.createElement("p");
             p.classList.add("replay");
             p.innerText = "Opening..";
-            texts.appendChild(p);
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
+            // texts.appendChild(p);
             speak(p.innerHTML);
             window.open("https://www.facebook.com/");
         }
@@ -146,7 +168,9 @@ recognition.addEventListener("result", (e) => {
             p = document.createElement("p");
             p.classList.add("replay");
             p.innerText = "Opening..";
-            texts.appendChild(p);
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + p.innerHTML + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
+            // texts.appendChild(p);
             speak(p.innerHTML);
             window.open("https://www.github.com/");
         }
@@ -154,6 +178,10 @@ recognition.addEventListener("result", (e) => {
     }
 });
 
-// recognition.addEventListener("end", () => {
-//     recognition.start();
-// });
+function start_animation() {
+    for (let i = 0; i < animate.length; i++) {
+        setTimeout(function() {
+            animate[i].classList.add("animated");
+        }, 300 * i + 300);
+    }
+}
