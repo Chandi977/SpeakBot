@@ -28,6 +28,7 @@ recognition.addEventListener("result", (e) => {
     const finalText = text.toUpperCase();
     if (e.results[0].isFinal) {
         chatbox.innerHTML += '<div class="eachmessage sent animated"><p>' + p.innerHTML + '</p></div>';
+        chatbox.scrollTop = chatbox.scrollHeight;
         // the recognition AI......
         if (finalText.includes("HELLO" || "HI" || "HEY" || "HEY SPEAKBOT")) {
             p = document.createElement("p");
