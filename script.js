@@ -193,6 +193,12 @@ recognition.addEventListener("result", (e) => {
             chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p></div>';
             chatbox.scrollTop = chatbox.scrollHeight;
             speak(replay);
+        } else if (finalText.includes("REFRESH")) {
+            replay = "OK refreshing";
+            chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p></div>';
+            chatbox.scrollTop = chatbox.scrollHeight;
+            speak(replay);
+            location.reload();
         } else {
             console.log(finalText);
             replay = "Sorry I can't help.";

@@ -111,7 +111,8 @@ body::after {
 
 .received {
     background: #e9d8f7;
-    color: #1b1b1b;
+    color: #444;
+    font-weight: 500;
     border-radius: 0.7rem 0.7rem 0.7rem 0.2rem;
     box-shadow: -1px 2px 2px #00000026;
     transform: translateX(-100px) scale(0.5);
@@ -121,7 +122,8 @@ body::after {
 .sent {
     background: #FFFEFF;
     align-self: flex-end;
-    color: #ACA9B1;
+    color: #444;
+    font-weight: 500;
     border-radius: 0.7rem 0.7rem 0.3rem 0.7rem;
     box-shadow: 1px 2px 2px #0000000f;
     transform: translateX(100px) scale(0.5);
