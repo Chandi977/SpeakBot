@@ -1,6 +1,6 @@
 const animate = document.querySelectorAll(".animate");
 const chatbox = document.querySelector(".chatbox");
-const mic = document.getElementById("#mic-btn");
+// const mic = document.getElementById("#mic-btn");
 
 const synth = window.speechSynthesis;
 const amISpeaking = synth.speaking;
@@ -19,12 +19,13 @@ function speak(replay) {
     speechSynthesis.speak(new SpeechSynthesisUtterance(replay));
     console.log(!amISpeaking)
 }
-// replay = "Hi, I am a SpeakBot. How can i help you";
-// chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p></div>';
-// chatbox.scrollTop = chatbox.scrollHeight;
-// speak(replay);
+replay = "Hi, I am a SpeakBot. How can i help you";
+chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p></div>';
+chatbox.scrollTop = chatbox.scrollHeight;
+speak(replay);
 
 recognition.addEventListener("result", (e) => {
+
     replay = Array.from(e.results).map((result) => result[0]).map((result) => result.transcript).join("");
     // chatbox.innerHTML += '<div class="eachmessage sent animated"><p>' + replay + '</p></div>';
 
@@ -45,16 +46,16 @@ recognition.addEventListener("result", (e) => {
             speak(replay);
         } else if (finalText.includes("WHAT'S THE WEATHER" || "WHAT'S THE WEATHER IN JAMSHEDPUR" || "WEATHER")) {
             const url = `https://api.openweathermap.org/data/2.5/weather?q=Jamshedpur&appid=${api_key}`;
-            fetch(url).then(function(data) {
+            fetch(url).then(function (data) {
                 return data.json();
-            }).then(function(data) {
+            }).then(function (data) {
                 temp = data.main.temp - 273.15;
                 const text = "The weather in Jamshedpur is";
                 replay = text + ' ' + Math.trunc(temp) + '° celcius.';
                 chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p> </div>';
                 chatbox.scrollTop = chatbox.scrollHeight;
                 speak(replay);
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.log(err);
                 replay = "Sorry I cannot find The city.";
                 chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p> </div>';
@@ -68,16 +69,16 @@ recognition.addEventListener("result", (e) => {
             console.log(query);
             if (query != "") {
                 const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${api_key}`;
-                fetch(url).then(function(data) {
+                fetch(url).then(function (data) {
                     return data.json();
-                }).then(function(data) {
+                }).then(function (data) {
                     temp = data.main.temp - 273.15;
                     const text = "The weather in " + query + " is";
                     replay = text + ' ' + Math.trunc(temp) + '° celcius.';
                     chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p> </div>';
                     chatbox.scrollTop = chatbox.scrollHeight;
                     speak(replay);
-                }).catch(function(err) {
+                }).catch(function (err) {
                     // console.log(err);
                     replay = "Sorry I cannot find The city.";
                     chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p> </div>';
@@ -187,6 +188,7 @@ recognition.addEventListener("result", (e) => {
             chatbox.innerHTML += '<div class="eachmessage received animated"><p>' + replay + '</p></div>';
             chatbox.scrollTop = chatbox.scrollHeight;
             speak(replay);
+            console.log(query);
             window.open(`https://www.${query}.com/`);
         } else if (finalText.includes("OK")) {
             replay = "OK";
@@ -212,10 +214,21 @@ recognition.addEventListener("result", (e) => {
 
 function start_animation() {
     for (let i = 0; i < animate.length; i++) {
-        setTimeout(function() {
+        setTimeout(function () {
             animate[i].classList.add("animated");
         }, 300 * i + 300);
     }
 }
+
+function champ() {
+    document.getElementById("champ").style.display = "block";
+    document.getElementById("mic-btn").style.display = "none";
+    recognition.start();
+    setTimeout(function () { 
+        document.getElementById("champ").style.display = "none"; 
+        document.getElementById("mic-btn").style.display = "block";
+    }, 3000);
+}
+
 
 // https://www.google.com/search?q=who+is+the+prime+minister+of+india&rlz=1C1UEAD_enIN971IN971&sxsrf=AOaemvI4v5MP8xENaQFFNxmqkFe1ltIKtA%3A1637087940432&ei=xPqTYcvoGc_rwQOs1JTADQ&oq=who+is+the+prime&gs_lcp=Cgdnd3Mtd2l6EAEYADIICAAQgAQQsQMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BwgjEOoCECc6DAgjECcQnQIQRhCAAjoECCMQJzoFCAAQkQI6BwgAELEDEEM6BAgAEEM6DQgAEIAEELEDEEYQ-wFKBAhBGABQ5hpY2z1g1FBoAXACeACAAa0DiAGxFZIBCjAuMTQuMS4wLjGYAQCgAQGwAQrAAQE&sclient=gws-wiz
