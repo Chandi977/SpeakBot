@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -148,9 +149,9 @@ body::after {
 }
 
 .animated {
-    transition: 0.3s ease-in-out!important;
-    transform: translateX(0px) scale(1)!important;
-    opacity: 1!important;
+    transition: 0.3s ease-in-out !important;
+    transform: translateX(0px) scale(1) !important;
+    opacity: 1 !important;
 }
 
 .chatbox {
@@ -204,52 +205,15 @@ input::placeholder {
     cursor: pointer;
 }
 
-.text {
-    width: 27rem;
-    margin-left: 8rem;
-}
-
-.text h1 {
-    color: #412D53;
-    font-size: 2.3rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.text p {
-    color: darkgrey;
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-.attribution {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    background: #000000d6;
-    color: white;
-    padding: 0.8rem;
-    font-weight: 300;
-    border-radius: 0.4rem;
-    line-height: 1.5;
-}
-
-.attribution a {
-    color: whitesmoke;
-    font-weight: 400;
-}
-
-.chatbox::-webkit-scrollbar {
+.wrapper {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.wrapper{
-    display: none;
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translate(-50%, -50%); 
-  }
-  .circle{
+
+.circle {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -258,45 +222,56 @@ input::placeholder {
     animation: loading 1.5s cubic-bezier(.8, .5, .2, 1.4) infinite;
     transform-origin: bottom center;
     position: relative;
-  }
-  @keyframes loading{
-    0%{
-      transform: translateY(0px);
-      background-color: #fcdc29;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateY(0px);
+        background-color: #fcdc29;
     }
-    50%{
-      transform: translateY(50px);
-      background-color: #ef584a;
+
+    50% {
+        transform: translateY(50px);
+        background-color: #ef584a;
     }
-    100%{
-      transform: translateY(0px);
-      background-color: #fcdc29;
+
+    100% {
+        transform: translateY(0px);
+        background-color: #fcdc29;
     }
-  }
-  .circle-1{
+}
+
+.circle-1 {
     animation-delay: 0.1s;
-  }
-  .circle-2{
+}
+
+.circle-2 {
     animation-delay: 0.2s;
-  }
-  .circle-3{
+}
+
+.circle-3 {
     animation-delay: 0.3s;
-  }
-  .circle-4{
+}
+
+.circle-4 {
     animation-delay: 0.4s;
-  }
-  .circle-5{
+}
+
+.circle-5 {
     animation-delay: 0.5s;
-  }
-  .circle-6{
+}
+
+.circle-6 {
     animation-delay: 0.6s;
-  }
-  .circle-7{
+}
+
+.circle-7 {
     animation-delay: 0.7s;
-  }
-  .circle-8{
+}
+
+.circle-8 {
     animation-delay: 0.8s;
-  }
+}
 
 svg {
     display: block;
@@ -323,28 +298,42 @@ path {
         flex-direction: column;
         padding: 5rem 0 7rem;
     }
+
     body {
         width: 100vw;
         height: 100vh;
         overflow: hidden;
     }
+
     body::before {
         width: 20rem;
         height: 50rem;
     }
+
     body::after {
         display: none;
     }
+
     .sendbox {
         margin-top: 25%;
     }
+
     .mobile {
         margin-top: 10%;
-        width: 50vw;
+        width: 90%;
         height: 90vh;
     }
+
     .text {
         margin: 0 2rem;
         text-align: center;
+    }
+
+    .wrapper {
+        display: block;
+    }
+
+    #mic-btn {
+        top: -35px;
     }
 }
