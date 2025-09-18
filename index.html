@@ -35,17 +35,28 @@
             <div class="chatbox">
             </div>
             <div class="sendbox">
-                <div class="wrapper" id="champ">
-                    <span class="circle circle-1"></span>
-                    <span class="circle circle-2"></span>
-                    <span class="circle circle-3"></span>
-                    <span class="circle circle-4"></span>
-                    <span class="circle circle-5"></span>
-                    <span class="circle circle-6"></span>
+                <div class="buttons">
+                    <button class="submit" id="mic-btn" onclick="champ();">
+                        <i class="fa fa-microphone"></i>
+                    </button>
+
+                    <!-- Loader -->
+                    <div class="wrapper" id="champ">
+                        <span class="circle circle-1"></span>
+                        <span class="circle circle-2"></span>
+                        <span class="circle circle-3"></span>
+                        <span class="circle circle-4"></span>
+                        <span class="circle circle-5"></span>
+                        <span class="circle circle-6"></span>
+                    </div>
+
+                    <button class="submit" id="stop-btn">
+                        <i class="fa fa-stop"></i>
+                    </button>
                 </div>
-                <button class="submit" id="mic-btn" onclick="champ();"><i class="fa fa-microphone"
-                        aria-hidden="true"></i></button>
             </div>
+
+
         </div>
     </div>
     <!-- <script src="visual.js"></script> -->

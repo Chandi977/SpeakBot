@@ -1,0 +1,11 @@
+{
+  "name": "speakbot",
+  "version": "1.0.0",
+  "description": "Ai Chat bot with lots of API to search and answer queries",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

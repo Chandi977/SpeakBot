@@ -1,66 +1,81 @@
-﻿# SpeakBot
+﻿# SpeakBot - Voice-Enabled Chat Assistant
 
-SpeakBot is a voice-controlled assistant application that allows users to interact via speech commands. It integrates various APIs to provide functionalities such as weather updates, web searches, and more.
+SpeakBot is a web-based voice assistant that allows users to interact via speech commands. It can provide weather updates, news headlines, movie details, Wikipedia summaries, and more.
 
-[For demo click here](https://chandi977.github.io/SpeakBot/home.html)
+[Live Demo](https://chandi977.github.io/SpeakBot/index.html)
+
 ---
-## Commands
 
-SpeakBot currently supports the following commands:
+## Features
 
-- **Greetings:**
-  - "Hello"
-  - "Hi SpeakBot"
-  - "Hey there"
+- **Voice Interaction**: Uses the Web Speech API for speech recognition and speech synthesis.
+- **Weather Updates**: Fetches current weather using OpenWeather API for your city or any specified city.
+- **News Headlines**: Retrieves top news using NewsAPI.
+- **Movie Information**: Fetches movie details from OMDb API.
+- **Wikipedia Summaries**: Provides summaries of any topic from Wikipedia.
+- **Web Control**: Open websites and refresh the page using voice commands.
+- **Friendly Responses**: Basic conversation handling (greetings, name, creator, date, thank you).
 
-- **Weather:**
-  - "What's the weather?"
-  - "Tell me the weather in [city]"
-  - "How's the weather today?"
+---
 
-- **Information:**
-  - "Tell me about [topic]"
-  - "Who created you?"
-  - "What can you do for me?"
+## APIs Used
 
-- **Actions:**
-  - "Open [website]"
-  - "Refresh"
-  - "Add [item]"
+- **OpenWeather API**: For weather data.
+- **NewsAPI**: For fetching news articles.
+- **OMDb API**: For fetching movie information.
+- **Wikipedia REST API**: For topic summaries.
 
-- **Miscellaneous:**
-  - "Thank you"
-  - "Nice to meet you"
-  - "What's the date?"
+---
 
-## Technologies Used
+## Usage
 
-SpeakBot is built using the following technologies:
+1. Open the project in a web browser that supports the Web Speech API.
+2. Click the microphone button to start voice recognition.
+3. Speak one of the supported commands:
 
-- **HTML/CSS/JavaScript**: Front-end development.
-- **SpeechRecognition API**: Enables voice recognition for commands.
-- **SpeechSynthesis API**: Provides text-to-speech capabilities.
-- **Fetch API**: Handles HTTP requests to external APIs.
-- **Geolocation API**: Retrieves user's current location for weather updates.
+### Supported Commands
 
-## APIs Integrated
+| Command                                 | Description                               |
+| --------------------------------------- | ----------------------------------------- |
+| "Hello" / "Hi"                          | Greets the user.                          |
+| "How are you"                           | Asks SpeakBot's status.                   |
+| "What's the weather"                    | Fetches weather for current location.     |
+| "Can you tell me the weather of [City]" | Fetches weather for a specific city.      |
+| "Tell me about [Topic]"                 | Provides Wikipedia summary for the topic. |
+| "Find a movie name [Movie]"             | Fetches movie details from OMDb.          |
+| "News [Topic]"                          | Fetches latest news (default: general).   |
+| "What's your name" / "Who are you"      | SpeakBot introduces itself.               |
+| "Who created you"                       | Information about the creator.            |
+| "What's the date"                       | Provides the current date.                |
+| "Open [Website]"                        | Opens a website in a new tab.             |
+| "Refresh"                               | Reloads the page.                         |
+| "Thank you"                             | Responds politely.                        |
 
-SpeakBot currently integrates the following APIs:
+---
 
-- **OpenWeatherMap API**: Provides current weather data based on location.
-- **Google Search API**: Executes web searches for user queries.
-- **Wikipedia API**: Retrieves information from Wikipedia for informational queries.
+## How It Works
 
-## Future Updates
+- **Speech Recognition**: Uses `SpeechRecognition` for capturing user speech.
+- **Speech Synthesis**: Uses `speechSynthesis` to respond verbally.
+- **Fetch API**: Requests data from external APIs (weather, news, movies, Wikipedia).
+- **Dynamic Chatbox**: Displays messages and API responses dynamically.
+- **Error Handling**: Handles invalid inputs and API errors gracefully.
 
-For future updates, consider integrating the following APIs and features:
+---
 
-- **News API**: Fetches latest news updates based on user queries.
-- **Calendar API**: Adds events to user's calendar based on voice commands.
-- **AI Chatbot Integration**: Enhances conversational abilities using AI models like OpenAI's GPT.
-- **Personalization**: Customizes responses based on user preferences or historical interactions.
-- **Multi-language Support**: Extends support for multiple languages for global users.
+## File Structure
 
-Feel free to contribute to SpeakBot and suggest new features or improvements. Happy speaking!
+- `script.js` - Main logic for voice recognition, command handling, API requests, and chat UI updates.
 
+---
 
+## Dependencies
+
+- Modern web browser with Web Speech API support.
+- Internet connection to access APIs.
+
+---
+
+## Author
+
+Chandi Charan Mahato
