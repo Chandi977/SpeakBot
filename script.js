@@ -16,7 +16,7 @@ let replay = "";
 // Dom Elements
 const chatbox = document.querySelector(".chatbox");
 const animate = document.querySelectorAll(".animate");
-const stopBtn = document.getElementById("stop-btn");
+// const stopBtn = document.getElementById("stop-btn");
 // phone screen
 function champ() {
   document.getElementById("champ").style.display = "block";
@@ -49,12 +49,12 @@ function speak(text) {
   synth.speak(currentUtterance);
 }
 
-stopBtn.addEventListener("click", () => {
-  if (synth.speaking) {
-    synth.cancel();
-    console.log("Speech stopped by user");
-  }
-});
+// stopBtn.addEventListener("click", () => {
+//   if (synth.speaking) {
+//     synth.cancel();
+//     console.log("Speech stopped by user");
+//   }
+// });
 
 // Stop speech when page refreshes/resets
 window.addEventListener("beforeunload", () => {
